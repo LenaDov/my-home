@@ -1,14 +1,35 @@
 import React from 'react'
 import DateDisplay from '../components/DateDisplay'
 
-import {CssVarsProvider, Sheet, Typography } from '@mui/joy'
-import Login from '../components/Login'
+import { CssVarsProvider, Sheet, Stack, Typography } from '@mui/joy'
 import CssBaseline from '@mui/joy/CssBaseline/CssBaseline'
+import TwoSidedLayout from '../components/TwoSidedLayout'
+import Greeting from '../components/Greeting'
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
     return (
         <CssVarsProvider>
-            <Login />
+            <CssBaseline />
+            <Sheet
+                sx={{
+                    height: '100vh',
+                    overflowY: 'scroll',
+                    scrollSnapType: 'y mandatory',
+                    '& > div': {
+                        scrollSnapAlign: 'start',
+                    },
+                }}
+            >
+                <TwoSidedLayout>
+                    <Greeting/>
+                </TwoSidedLayout>
+                <TwoSidedLayout>
+                    <Greeting/>
+                </TwoSidedLayout>
+                <TwoSidedLayout>
+                    <Greeting/>
+                </TwoSidedLayout>
+            </Sheet>
         </CssVarsProvider>
 
         // <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
