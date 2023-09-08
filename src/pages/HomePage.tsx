@@ -5,6 +5,8 @@ import { CssVarsProvider, Sheet, Stack, Typography } from '@mui/joy'
 import CssBaseline from '@mui/joy/CssBaseline/CssBaseline'
 import TwoSidedLayout from '../components/TwoSidedLayout'
 import Greeting from '../components/Greeting'
+import HabitsTable from '../components/HabitsTable'
+import SimpleLayout from '../components/SimpleLayout'
 
 const HomePage = () => {
     return (
@@ -23,12 +25,10 @@ const HomePage = () => {
                 <TwoSidedLayout>
                     <Greeting/>
                 </TwoSidedLayout>
-                <TwoSidedLayout>
-                    <Greeting/>
-                </TwoSidedLayout>
-                <TwoSidedLayout>
-                    <Greeting/>
-                </TwoSidedLayout>
+                <SimpleLayout>
+                    <HabitsTable/>
+                </SimpleLayout>
+                
             </Sheet>
         </CssVarsProvider>
 

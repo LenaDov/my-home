@@ -5,7 +5,7 @@ type TwoSidedLayoutProps = {
     children?: React.ReactNode;
 }
 
-const TwoSidedLayout = (props: PropsWithChildren<TwoSidedLayoutProps>) => {
+const TwoSidedLayout = ({children}: PropsWithChildren<TwoSidedLayoutProps>) => {
     return (
         <Stack
             direction="row"
@@ -35,7 +35,7 @@ const TwoSidedLayout = (props: PropsWithChildren<TwoSidedLayoutProps>) => {
                     textAlign: 'initial',
                 }}
             >
-                {props.children}
+                {children}
             </Sheet>
             <AspectRatio
                 ratio={600 / 520}
