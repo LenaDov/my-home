@@ -1,9 +1,28 @@
 import { Button, Link, Typography } from "@mui/joy";
 import React, { Fragment } from "react";
-import PriorityTasks from "./PriorityTasks";
+import Tasks from "./Tasks";
+
 
 
 const Greeting = () => {
+    const tasksMock = [{ text: 'eat', checked: true }, { text: 'love', checked: false }, { text: 'dance', checked: false }];
+
+    const [tasks, setTasks] = React.useState(tasksMock);
+
+    const toggleTask =
+        (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+            const newMembers = [...tasks];
+            newMembers[index].checked = event.target.checked;
+            setTasks(newMembers);
+        };
+
+    const onTextChange =
+        (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+            const newMembers = [...tasks];
+            newMembers[index].text = event.target.value;
+            setTasks(newMembers);
+        };
+
     return (
         <Fragment>
             <Typography level='title-md' color='primary' fontSize="lg" fontWeight="lg">The Power to do more.</Typography>
@@ -17,7 +36,7 @@ const Greeting = () => {
             <Typography level='title-md' color='neutral' fontSize="lg" lineHeight="lg">
                 {"Let's get back to growing, learning and improving with every day that passes."}
             </Typography>
-            <PriorityTasks/>
+            <Tasks tasks={tasks} onTextChange={onTextChange} onCheckChange={toggleTask} />
             <Button size="lg" onClick={() => { }}>Build Habits</Button>
             <Typography level='title-sm' color='neutral'>
                 Taking it slow today? <Link level='title-sm'>Do things you enjoy</Link>
