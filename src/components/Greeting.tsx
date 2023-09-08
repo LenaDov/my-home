@@ -17,6 +17,7 @@ const Greeting = () => {
             <Typography level='title-md' color='neutral' fontSize="lg" lineHeight="lg">
                 {"Let's get back to growing, learning and improving with every day that passes."}
             </Typography>
+            <PriorityTasks/>
             <Button size="lg" onClick={() => { }}>Build Habits</Button>
             <Typography level='title-sm' color='neutral'>
                 Taking it slow today? <Link level='title-sm'>Do things you enjoy</Link>
