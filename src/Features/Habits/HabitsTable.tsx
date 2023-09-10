@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Typography, Sheet, Table} from "@mui/joy";
 
-import { habitsData } from '../resources/DataMocks'
+import { habitsData } from '../../resources/DataMocks'
 import HabitRow from "./HabitRow";
 
 const Habits = () => {
