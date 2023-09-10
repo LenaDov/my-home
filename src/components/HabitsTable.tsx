@@ -1,37 +1,23 @@
 import React, { Fragment } from "react";
-import { Typography, Sheet, Table, Checkbox } from "@mui/joy";
-import moment from "moment";
+import { Typography, Sheet, Table} from "@mui/joy";
 
-function createData(
-    date: string,
-    gratitude: boolean,
-    meditation: boolean,
-    run: boolean,
-    learn: boolean,
-) {
-    return { date, gratitude, meditation, run, learn };
-}
-
-const data = [
-    createData('09/08/23', true, true, false, false),
-    createData('09/07/23', true, false, true, false),
-    createData('09/06/23', false, true, true, false),
-    createData('09/05/23', true, false, true, true),
-    createData('09/04/23', true, true, true, true),
-];
+import { habitsData } from '../resources/DataMocks'
+import HabitRow from "./HabitRow";
 
 const Habits = () => {
+    const [habits] = React.useState(habitsData);
+
     return (
         <Fragment>
             <Typography level="h2" color="primary">Habit Tracker</Typography>
             <Sheet sx={{
-                    mx: 'auto', // margin left & right
-                    my: 1, // margin top & bottom
-                    py: 3, // padding top & bottom
-                    px: 2, // padding left & right
-                    borderRadius: 'sm',
-                    boxShadow: 'md',
-                }}>
+                mx: 'auto', // margin left & right
+                my: 1, // margin top & bottom
+                py: 3, // padding top & bottom
+                px: 2, // padding left & right
+                borderRadius: 'sm',
+                boxShadow: 'md',
+            }}>
                 <Table
                     borderAxis="none"
                     color="neutral"
@@ -49,22 +35,8 @@ const Habits = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((row) => (
-                            <tr key={row.date}>
-                                <td>{row.date}</td>
-                                <td>
-                                    <Checkbox variant='soft' checked={row.gratitude} onChange={() => { }} />
-                                </td>
-                                <td>
-                                    <Checkbox variant='soft' checked={row.meditation} onChange={() => { }} />
-                                </td>
-                                <td>
-                                    <Checkbox variant='soft' checked={row.run} onChange={() => { }} />
-                                </td>
-                                <td>
-                                    <Checkbox variant='soft' checked={row.learn} onChange={() => { }} />
-                                </td>
-                            </tr>
+                        {habits.map((row) => (
+                            <HabitRow key={row.date} habit={row} />
                         ))}
                     </tbody>
                 </Table>

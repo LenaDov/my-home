@@ -1,7 +1,7 @@
 import React from 'react'
-import DateDisplay from '../components/DateDisplay'
+//import DateDisplay from '../components/DateDisplay'
 
-import { CssVarsProvider, Sheet, Stack, Typography } from '@mui/joy'
+import { CssVarsProvider, Sheet } from '@mui/joy'
 import CssBaseline from '@mui/joy/CssBaseline/CssBaseline'
 import TwoSidedLayout from '../components/TwoSidedLayout'
 import Greeting from '../components/Greeting'
@@ -28,7 +28,6 @@ const HomePage = () => {
                 <SimpleLayout>
                     <HabitsTable/>
                 </SimpleLayout>
-                
             </Sheet>
         </CssVarsProvider>
 
