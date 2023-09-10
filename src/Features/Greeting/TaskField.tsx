@@ -1,19 +1,22 @@
 import React from "react";
 import { Stack, Input, Checkbox, } from "@mui/joy";
 
+export type Task = {
+    id: number,
+    text: string | undefined,
+    completed: boolean
+}
+
 interface TaskProps {
-    task: {
-        text: string | undefined,
-        checked: boolean
-    },
+    task: Task,
     onTextChange: React.ChangeEventHandler<HTMLInputElement>,
     onCheckChange: React.ChangeEventHandler<HTMLInputElement>,
 }
 
-const Task = ({ task, onTextChange, onCheckChange }: TaskProps) => {
+const TaskField = ({ task, onTextChange, onCheckChange }: TaskProps) => {
     return (
         <Stack direction='row' alignItems="center">
-            <Checkbox variant="soft" checked={task.checked} onChange={onCheckChange} />
+            <Checkbox variant="soft" checked={task.completed} onChange={onCheckChange} />
             <Input
                 value={task.text}
                 size="sm"
@@ -26,4 +29,4 @@ const Task = ({ task, onTextChange, onCheckChange }: TaskProps) => {
     )
 }
 
-export default Task
+export default TaskField

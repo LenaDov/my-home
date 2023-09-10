@@ -1,24 +1,24 @@
-import { Button, Link, Typography } from "@mui/joy";
 import React, { Fragment } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/reducers/store";
+import { selectTasks, toggleTask, updateTask } from "./TasksSlice";
+
+import { Button, Link, Typography } from "@mui/joy";
 import Tasks from "./Tasks";
 
 const Greeting = () => {
-    const tasksMock = [{ text: 'eat', checked: true }, { text: 'love', checked: false }, { text: 'dance', checked: false }];
+    const tasks = useAppSelector(selectTasks);
 
-    const [tasks, setTasks] = React.useState(tasksMock);
+    const dispatch = useAppDispatch();
 
-    const toggleTask =
-        (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-            const newTasks = [...tasks];
-            newTasks[index].checked = event.target.checked;
-            setTasks(newTasks);
+    const onToggleTask =
+        (id: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+            dispatch(toggleTask(id));
         };
 
     const onTextChange =
-        (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-            const newTasks = [...tasks];
-            newTasks[index].text = event.target.value;
-            setTasks(newTasks);
+        (id: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+            const text = event.target.value;
+            dispatch(updateTask({id, text}));
         };
 
     return (
@@ -34,7 +34,7 @@ const Greeting = () => {
             <Typography level='title-md' color='neutral' fontSize="lg" lineHeight="lg">
                 {"Let's get back to growing, learning and improving with every day that passes."}
             </Typography>
-            <Tasks tasks={tasks} onTextChange={onTextChange} onCheckChange={toggleTask} />
+            <Tasks tasks={tasks} onTextChange={onTextChange} onCheckChange={onToggleTask} />
             <Button size="lg" onClick={() => { }}>Build Habits</Button>
             <Typography level='title-sm' color='neutral'>
                 Taking it slow today? <Link level='title-sm'>Do things you enjoy</Link>

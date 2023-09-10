@@ -1,11 +1,12 @@
 import React from "react";
+
 import { List, ListItem, Typography } from "@mui/joy";
-import Task from "./Task";
+import TaskField, { Task } from "./TaskField";
 
 interface TasksProps {
-    tasks: { text: string, checked: boolean }[],
-    onTextChange: (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => void,
-    onCheckChange: (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => void
+    tasks: Task[],
+    onTextChange: (id: number) => (event: React.ChangeEvent<HTMLInputElement>) => void,
+    onCheckChange: (id: number) => (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Tasks = ({ tasks, onTextChange, onCheckChange }: TasksProps) => {
@@ -16,15 +17,15 @@ const Tasks = ({ tasks, onTextChange, onCheckChange }: TasksProps) => {
             </Typography>
             <div role="group" aria-labelledby="sandwich-group">
                 <List size="sm" sx={{ "--ListItem-paddingY": "0px" }}>
-                    <ListItem>
-                        <Task task={tasks[0]} onTextChange={onTextChange(0)} onCheckChange={onCheckChange(0)} />
+                    {tasks.map(task => 
+                    <ListItem key={task.id}>
+                        <TaskField
+                            task={task} 
+                            onTextChange={onTextChange(task.id)} 
+                            onCheckChange={onCheckChange(task.id)} 
+                        />
                     </ListItem>
-                    <ListItem>
-                        <Task task={tasks[1]} onTextChange={onTextChange(1)} onCheckChange={onCheckChange(1)} />
-                    </ListItem>
-                    <ListItem>
-                        <Task task={tasks[2]} onTextChange={onTextChange(2)} onCheckChange={onCheckChange(2)} />
-                    </ListItem>
+                    )}
                 </List>
             </div>
             <Typography color="success" level="body-lg">
