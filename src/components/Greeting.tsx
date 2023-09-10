@@ -2,8 +2,6 @@ import { Button, Link, Typography } from "@mui/joy";
 import React, { Fragment } from "react";
 import Tasks from "./Tasks";
 
-
-
 const Greeting = () => {
     const tasksMock = [{ text: 'eat', checked: true }, { text: 'love', checked: false }, { text: 'dance', checked: false }];
 
@@ -11,16 +9,16 @@ const Greeting = () => {
 
     const toggleTask =
         (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-            const newMembers = [...tasks];
-            newMembers[index].checked = event.target.checked;
-            setTasks(newMembers);
+            const newTasks = [...tasks];
+            newTasks[index].checked = event.target.checked;
+            setTasks(newTasks);
         };
 
     const onTextChange =
         (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-            const newMembers = [...tasks];
-            newMembers[index].text = event.target.value;
-            setTasks(newMembers);
+            const newTasks = [...tasks];
+            newTasks[index].text = event.target.value;
+            setTasks(newTasks);
         };
 
     return (
