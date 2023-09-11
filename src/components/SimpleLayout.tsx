@@ -1,11 +1,11 @@
 import React, { PropsWithChildren } from 'react'
-import { AspectRatio, Sheet, Stack } from '@mui/joy'
+import { Sheet } from '@mui/joy'
 
-type TwoSidedLayoutProps = {
+type SimpleLayoutProps = {
     children?: React.ReactNode;
 }
 
-const TwoSidedLayout = ({children}: PropsWithChildren<TwoSidedLayoutProps>) => {
+const SimpleLayout = ({children}: PropsWithChildren<SimpleLayoutProps>) => {
     return (
         <Sheet
             sx={{
@@ -24,4 +24,4 @@ const TwoSidedLayout = ({children}: PropsWithChildren<TwoSidedLayoutProps>) => {
     )
 }
 
-export default TwoSidedLayout
+export default SimpleLayout
