@@ -7,9 +7,11 @@ import Greeting from '../Features/Greeting/Greeting'
 import HabitsTable from '../Features/Habits/HabitsTable'
 import SimpleLayout from '../components/SimpleLayout'
 
+import { theme } from '../styles/Theme'
+
 const HomePage = () => {
     return (
-        <CssVarsProvider>
+        <CssVarsProvider theme={theme}>
             <CssBaseline />
             <Sheet
                 sx={{

@@ -23,7 +23,7 @@ const Greeting = () => {
 
     return (
         <Fragment>
-            <Typography level='title-md' color='primary' fontSize="lg" fontWeight="lg">The Power to do more.</Typography>
+            <Typography level='title-md' color='primary' fontSize="lg" fontWeight="lg">The Power to do more</Typography>
             <Typography
                 level='h1'
                 fontWeight="xl"
