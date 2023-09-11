@@ -1,11 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Typography, Sheet, Table} from "@mui/joy";
 
-import { habitsData } from '../../resources/DataMocks'
-import HabitRow from "./HabitRow";
+import HabitRow from "./HabitRowField";
+import { useAppDispatch, useAppSelector } from "../../store/reducers/store";
+import { selectHabits, loadHabits } from "./HabitsSlice";
+
 
 const Habits = () => {
-    const [habits] = React.useState(habitsData);
+    const habits = useAppSelector(selectHabits);
+    const dispatch = useAppDispatch();
+  
+    useEffect(() => {
+      dispatch(loadHabits());
+    }, [dispatch]);
 
     return (
         <Fragment>

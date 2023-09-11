@@ -3,11 +3,13 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage' // defaults to localStorage
 import data from './data'
 import tasks from '../../Features/Greeting/TasksSlice' 
+import habits from '../../Features/Habits/HabitsSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const rootReducer = combineReducers({
     data,
-    tasks
+    tasks,
+    habits
 })
 
 const persistedReducer = persistReducer(
